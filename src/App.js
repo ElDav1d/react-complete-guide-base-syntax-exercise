@@ -13,9 +13,11 @@ class App extends Component {
   };
 
   userNameChangedHandler = (userIndex, event) => {
-    let newUserNames = [...this.state.userNames];
-    newUserNames[userIndex].userName = event.target.value
-    this.setState(this.state.userNames = newUserNames);
+    this.setState(prevState => {
+      let userNames = { ...prevState.userNames };
+      userNames[userIndex].userName = event.target.value;
+      return { userNames };
+    });
   };
 
   render () {
