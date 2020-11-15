@@ -7,7 +7,9 @@ function App() {
     <div className="App">
       <h1>Lets' start mate!</h1>
       <UserInput />
-      <UserOutput />
+      <UserOutput userName="user 1"/>
+      <UserOutput userName="user 2"/>
+      <UserOutput userName="user 3"/>
     </div>
   );
 }
