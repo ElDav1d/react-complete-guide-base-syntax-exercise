@@ -12,27 +12,37 @@ class App extends Component {
     ]
   };
 
-  userNameChangedHandler = () => {
-    this.setState({
-      userNames: [
-        { userName: 'user 1 HAS CHANGED' },
-        { userName: 'user 2 HAS CHANGED' },
-        { userName: 'user 3 HAS CHANGED' },
-      ]
-    })
+  userNameChangedHandler = (userIndex, event) => {
+    let newUserNames = [...this.state.userNames];
+    newUserNames[userIndex].userName = event.target.value
+    this.setState(this.state.userNames = newUserNames);
   };
 
   render () {
     return (
       <div className="App">
         <h1>Lets' start mate!</h1>
-        <UserInput changed={this.userNameChangedHandler} />
         <UserOutput 
-          userName={this.state.userNames[0].userName}/>
+          userName={this.state.userNames[0].userName}>
+          <UserInput
+            changed={this.userNameChangedHandler.bind(this, 0)}
+            name= {this.state.userNames[0].userName}
+          />
+        </UserOutput>
         <UserOutput 
-          userName={this.state.userNames[1].userName}/>
+          userName={this.state.userNames[1].userName}>
+          <UserInput
+            changed={this.userNameChangedHandler.bind(this, 1)}
+            name= {this.state.userNames[1].userName}
+          />
+        </UserOutput>
         <UserOutput 
-          userName={this.state.userNames[2].userName}/>
+          userName={this.state.userNames[2].userName}>
+          <UserInput
+            changed={this.userNameChangedHandler.bind(this, 2)}
+            name= {this.state.userNames[2].userName}
+          />
+        </UserOutput>
       </div>
     );
   };
