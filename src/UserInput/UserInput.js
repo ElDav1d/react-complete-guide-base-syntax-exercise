@@ -1,3 +1,5 @@
+import React from 'react';
+
 const userInput = (props) => {
   const inputStyle = {
     display: 'block',
