@@ -1,6 +1,8 @@
+import './UserOutput.css';
+
 const userOutput = (props) => {
   return (
-    <div>
+    <div className="User">
       <div>{props.children}</div>
       <h3>I'm {props.userName}</h3>
       <p>I'm paragraph 1</p>
