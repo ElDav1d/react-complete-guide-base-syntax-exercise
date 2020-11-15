@@ -10,18 +10,32 @@ class App extends Component {
       { userName: 'user 2' },
       { userName: 'user 3' },
     ]
-  }
+  };
+
+  userNameChangedHandler = () => {
+    this.setState({
+      userNames: [
+        { userName: 'user 1 HAS CHANGED' },
+        { userName: 'user 2 HAS CHANGED' },
+        { userName: 'user 3 HAS CHANGED' },
+      ]
+    })
+  };
+
   render () {
     return (
       <div className="App">
         <h1>Lets' start mate!</h1>
-        <UserInput />
-        <UserOutput userName={this.state.userNames[0].userName}/>
-        <UserOutput userName={this.state.userNames[1].userName}/>
-        <UserOutput userName={this.state.userNames[2].userName}/>
+        <UserInput changed={this.userNameChangedHandler} />
+        <UserOutput 
+          userName={this.state.userNames[0].userName}/>
+        <UserOutput 
+          userName={this.state.userNames[1].userName}/>
+        <UserOutput 
+          userName={this.state.userNames[2].userName}/>
       </div>
     );
-  }
+  };
 }
 
 export default App;

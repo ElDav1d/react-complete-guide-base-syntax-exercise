@@ -1,7 +1,9 @@
-const userInput = () => {
+const userInput = (props) => {
   return (
     <div>
-      <input type="text"/>
+      <input
+        onChange={props.changed}
+        type="text"/>
     </div>
   )
 };
